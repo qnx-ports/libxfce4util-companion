@@ -2,7 +2,7 @@
 # QNX Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libxfce4util
 pkgver=4.20.1
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Basic utility non-GUI functions for Xfce"
 url="https://xfce.org/"
 arch="all"
@@ -35,6 +35,7 @@ package() {
     make DESTDIR="$pkgdir" install
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 b9eecac47245c37a46f8e381ed5c672233aae3a78cae8ac0b25a79598847210267172cd03d64d5f4d0405640608f4885092fd62431914b58a930c7b401067268  libxfce4util-4.20.1.tar.bz2
 "
